@@ -13,6 +13,8 @@ public class GeneralFunctions {
    
     public int addRegistro(int reg){
 
+        /* Função gera números aleatórios de acordo com a quantidade indicada no REG.
+         * Se REG = 7 a função retornará um INTEIRO DE 7 DÍGITOS ALEATÓRIOS.*/
         Integer registro;
         
         int [] numvec = new int[reg];
@@ -33,6 +35,11 @@ public class GeneralFunctions {
     }
 
     public String checkStringMinVariavel (String variavel, int limiteMin){
+
+        /* Função utilizada para substituir o Scanner. Ela recebe o valor digitado
+         * pelo usuário e verifica se está no tamanho MINIMO desejado pelo programa.
+         * A VARIAVEL pode ser um espaço OU caracter desejado para ilustrar o código.
+         */
 
         String string = "";
         boolean tryAgain = true;
@@ -56,6 +63,11 @@ public class GeneralFunctions {
 
     public String checkStringMaxVariavel (String variavel, int limiteMax){
 
+        /* Função utilizada para substituir o Scanner. Ela recebe o valor digitado
+         * pelo usuário e verifica se está no tamanho MAXIMO desejado pelo programa.
+         * A VARIAVEL pode ser um espaço OU caracter desejado para ilustrar o código.
+         */
+
         String string = "";
         boolean tryAgain = true;
 
@@ -78,6 +90,11 @@ public class GeneralFunctions {
 
     public String checkStringMinMaxVariavel (String variavel, int limiteMin, int limiteMax){
 
+        /* Função utilizada para substituir o Scanner. Ela recebe o valor digitado
+         * pelo usuário e verifica se está no tamanho MINIMO e MAXIMO desejado pelo programa.
+         * A VARIAVEL pode ser um espaço OU caracter desejado para ilustrar o código.
+         */
+
         String string = "";
         boolean tryAgain = true;
 
@@ -99,6 +116,10 @@ public class GeneralFunctions {
     }
 
     public boolean isNumeric(String str){
+
+        /* Função utilizada para verificar se a VARIAVEL recebida
+         é um número. */
+
         if (str != null && str.matches("[0-9.]+")){
             return true;
         } else {
@@ -107,6 +128,11 @@ public class GeneralFunctions {
     }
 
     public Integer recebeIntMinMaxVariavel (String variavel, int limiteMin, int limiteMax){
+
+        /* Função utilizada para substituir o Scanner. Ela recebe o valor digitado
+         * pelo usuário e verifica se está no tamanho MINIMO e no MAXIMO desejado pelo programa.
+         * A VARIAVEL pode ser um espaço OU caracter desejado para ilustrar o código.
+         */
 
         Integer numConv = -1;
         boolean testaNum = true;
@@ -137,6 +163,10 @@ public class GeneralFunctions {
 
     public Integer recebeIntMinMax (int limiteMin, int limiteMax){
 
+        /* Função utilizada para substituir o Scanner. Ela recebe o valor digitado
+         * pelo usuário e verifica se está no tamanho MINIMO desejado pelo programa.
+         * NÃO HÁ VARIAVEL. */
+
         Integer numConv = -1;
         boolean testaNum = true;
         while (testaNum == true){
@@ -166,6 +196,9 @@ public class GeneralFunctions {
 
     public Integer recebeInt (){
 
+        /* Função utilizada para substituir o Scanner. Ela recebe o valor digitado
+         * pelo usuário e verifica se É UM NÚMERO inteiro. NÃO HÁ VARIAVEL. */
+
         Integer numConv = -1;
         boolean testaNum = true;
         while (testaNum == true){
@@ -188,6 +221,11 @@ public class GeneralFunctions {
    
 
     public Double recebeDoubleVariavel (String variavel){
+
+        /* Função utilizada para substituir o Scanner. Ela recebe o valor digitado
+         * pelo usuário e verifica se É UM NÚMERO REAL. HÁ VARIAVEL para o código. 
+         * Ex.: R$ 150,00 a função receber 'R$' como variável e repete para receber
+         * o valor correto caso seja digitado errado. */
 
         Double numConvertido = -999.85979;
         boolean testaNumero = true;
@@ -223,6 +261,17 @@ public class GeneralFunctions {
 
     public void pause(String letreiro, char etc, int repete, int tempo) throws InterruptedException{
         
+        /* Função chamada para apresentar uma mensagem na tela e parar o programa por um tempo
+        específico a fim de informar algo ao usuário sem a necessidade de intervenção na tela.
+
+         * Letreiro = "Processando", char = '.', repete = 3, tempo = 500ms
+         * 
+         * Saída: Processando... (aguarda 500ms antes de seguir o programa)
+         * 
+         * Letreiro = "Cadastrado", char = '!', repete = 1, tempo = 100ms
+         * Saída: Cadastrado! (aguarda 100ms antes de seguir o programa)
+         */
+
         System.out.print(letreiro);
 
         for (int i = 0; i < repete; i++){
@@ -233,6 +282,11 @@ public class GeneralFunctions {
     }
 
     public void PressToContinue(){
+
+        /* Função chamada para PARAR O PROGRAMA e dar tempo do usuário ler as informações antes de seguir
+         * o código para o usuário utilizar o tempo necessário a compreensão dos dados na tela. O
+         * programa somente retorna após a intervenção do usuário. */
+
         System.out.print("Pressione qualquer tecla para continuar... ");
         @SuppressWarnings("unused")
         String wait = inn.nextLine();
