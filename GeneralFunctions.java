@@ -8,7 +8,7 @@ public class GeneralFunctions {
     // Ultima atualização do arquivo FUNÇÕES: 22/01/2025 
     // Programa: EasyCalc
 
-    private Scanner inn = new Scanner (System.in);
+    private final Scanner inn = new Scanner (System.in);
 
    
     public int addRegistro(int reg){
