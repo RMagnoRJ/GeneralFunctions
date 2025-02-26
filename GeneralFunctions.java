@@ -357,4 +357,54 @@ public class GeneralFunctions {
         }
         return recebeStr;
     }
+
+    public static String justificar(String texto, int largura) {
+        
+        String[] palavras = texto.split(" ");
+        StringBuilder linhaAtual = new StringBuilder();
+        StringBuilder textoJustificado = new StringBuilder();
+
+        for (String palavra : palavras) {
+            // Verifica se a palavra cabe na linha atual
+            if (linhaAtual.length() + palavra.length() + 1 > largura) {
+                // Justifica a linha atual e adiciona ao texto justificado
+                textoJustificado.append(justificarLinha(linhaAtual.toString(), largura)).append("\n");
+                linhaAtual = new StringBuilder();
+            }
+            // Adiciona a palavra à linha atual
+            if (linhaAtual.length() > 0) {
+                linhaAtual.append(" ");
+            }
+            linhaAtual.append(palavra);
+        }
+
+        // Adiciona a última linha (não justificada)
+        if (linhaAtual.length() > 0) {
+            textoJustificado.append(linhaAtual.toString());
+        }
+
+        return textoJustificado.toString();
+    }
+
+    private static String justificarLinha(String linha, int largura) {
+        String[] palavras = linha.split(" ");
+        int espacosNecessarios = largura - linha.length();
+        int espacosPorIntervalo = palavras.length > 1 ? espacosNecessarios / (palavras.length - 1) : 0;
+        int espacosExtras = palavras.length > 1 ? espacosNecessarios % (palavras.length - 1) : 0;
+
+        StringBuilder linhaJustificada = new StringBuilder();
+        for (int i = 0; i < palavras.length; i++) {
+            linhaJustificada.append(palavras[i]);
+            if (i < palavras.length - 1) {
+                linhaJustificada.append(" ".repeat(espacosPorIntervalo + 1)); // Adiciona espaços
+                if (espacosExtras > 0) {
+                    linhaJustificada.append(" ");
+                    espacosExtras--;
+                }
+            }
+        }
+
+        return linhaJustificada.toString();
+    }
+
 }
